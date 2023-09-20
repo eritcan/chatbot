@@ -1,0 +1,13 @@
+runtime: python39  # Use the appropriate Python version
+
+entrypoint: gunicorn -b :$PORT main:app  # Adjust 'main:app' if needed
+
+handlers:
+- url: /static
+  static_dir: static
+
+- url: /.*
+  script: auto
+
+env_variables:
+  OPENAI_API_KEY: "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"
